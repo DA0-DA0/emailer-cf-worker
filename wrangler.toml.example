@@ -1,0 +1,16 @@
+name = "emailer"
+main = "src/index.ts"
+compatibility_date = "2023-06-21"
+node_compat = true
+
+[[queues.consumers]]
+queue = "emails"
+# Rate-limit by only allowing one Worker to process the queue at a time.
+max_concurrency = 1
+max_batch_size = 10
+max_batch_timeout = 5
+
+# Secrets:
+# - AWS_REGION
+# - AWS_ACCESS_KEY_ID
+# - AWS_SECRET_ACCESS_KEY
